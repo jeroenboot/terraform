@@ -1,5 +1,5 @@
 provider "vsphere" {
-  user           = "Administrator"
+  user           = "Administrator@vsphere.local"
   password       = "Vmware123!"
   vsphere_server = "192.168.101.130"
 
