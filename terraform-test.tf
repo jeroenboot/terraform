@@ -32,13 +32,13 @@ data "vsphere_network" "network" {
 }
 
 resource "vsphere_virtual_machine" "vm" {
-  name             = "terraform-test"
+  name             = "terraform-test2"
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
   wait_for_guest_net_timeout = "0"
 
   num_cpus = 2
-  memory   = 1024
+  memory   = 512
   guest_id = "other3xLinux64Guest"
 
   network_interface {
@@ -52,6 +52,6 @@ resource "vsphere_virtual_machine" "vm" {
 
   disk {
     label = "disk0"
-    size  = 20
+    size  = 5
   }
 }
