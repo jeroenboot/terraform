@@ -17,7 +17,7 @@ data "vsphere_datastore" "datastore" {
 }
 
 data "vsphere_host" "host" {
-  name          = "host1"
+  name          = "192.168.101.10"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
@@ -27,7 +27,7 @@ data "vsphere_resource_pool" "pool" {
 }
 
 data "vsphere_network" "network" {
-  name          = "public"
+  name          = "VM Network"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
