@@ -52,6 +52,6 @@ resource "vsphere_virtual_machine" "vm" {
 
   disk {
     label = "disk0"
-    size  = 5
+    size  = 20
   }
 }
