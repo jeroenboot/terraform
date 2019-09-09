@@ -44,6 +44,11 @@ resource "vsphere_virtual_machine" "vm" {
     network_id = "${data.vsphere_network.network.id}"
   }
 
+  cdrom {
+  datastore_id = "${data.vsphere_datastore.iso_datastore.id}"
+  path         = "ISO/TinyCore-current.iso"
+  }
+
   disk {
     label = "disk0"
     size  = 20
