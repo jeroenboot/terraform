@@ -22,7 +22,7 @@ data "vsphere_host" "host" {
 }
 
 data "vsphere_resource_pool" "pool" {
-  name          = "cluster1/Resources"
+  name          = "Cluster1/Resources"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
