@@ -36,7 +36,7 @@ data "vsphere_network" "network" {
 
 
 
-resource "vsphere_virtual_machine" "vm" {
+resource "vsphere_virtual_machine" "vm1" {
   name             = "terraform-vm1"
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
@@ -62,7 +62,7 @@ resource "vsphere_virtual_machine" "vm" {
 }
 
 
-resource "vsphere_virtual_machine" "vm" {
+resource "vsphere_virtual_machine" "vm2" {
   name             = "terraform-vm2"
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
