@@ -36,7 +36,15 @@ resource "vsphere_virtual_machine" "debian-vm1" {
         host_name = "debian-vm1"
         domain    = "lab.local"
       }
-   }
+
+      network_interface {
+       ipv4_address = "192.168.101.80"
+       ipv4_netmask = 24
+      }
+
+      ipv4_gateway = "192.168.101.2"
+
+     }
   }
 
 
