@@ -12,12 +12,17 @@ data "vsphere_datacenter" "dc" {
 }
 
 data "vsphere_datastore" "datastore" {
-  name          = "datastore1_host1" #name of the datastore
+  name          = "nfs" #name of the datastore
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
-data "vsphere_host" "host" {
-  name          = "host1.lab.local" #host to deploy VM on
+#data "vsphere_host" "host" {
+#  name          = "host1.lab.local" #host to deploy VM on
+#  datacenter_id = "${data.vsphere_datacenter.dc.id}"
+#}
+
+data "vsphere_compute_cluster" "compute_cluster" {
+  name          = "Cluster1"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 

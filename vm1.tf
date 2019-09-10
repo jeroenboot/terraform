@@ -14,7 +14,7 @@ resource "vsphere_virtual_machine" "vm1" {
 
   cdrom {
     datastore_id     = "${data.vsphere_datastore.datastore.id}"
-    path             = "ISO/TinyCore-current.iso"
+    path             = "ISOs/TinyCore-current.iso"
   }
 
   disk {
