@@ -13,7 +13,6 @@ resource "vsphere_virtual_machine" "ubuntu-vm1" {
   name             = "ubuntu-vm1"
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
-#  wait_for_guest_net_timeout = "0" #disable check for valid IP address
 
   num_cpus = 2
   memory   = 2048
@@ -32,20 +31,16 @@ resource "vsphere_virtual_machine" "ubuntu-vm1" {
     template_uuid = "${data.vsphere_virtual_machine.template.id}"
 
     customize {
+
       linux_options {
         host_name = "ubuntu-vm1"
         domain    = "lab.local"
       }
 
-      network_interface {
-       ipv4_address = "192.168.101.80"
-       ipv4_netmask = 24
+      network_interface {  # comment out these values for DHCP
       }
-
-      ipv4_gateway = "192.168.101.2"
 
      }
   }
-
 
 }
