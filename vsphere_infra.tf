@@ -12,17 +12,17 @@ data "vsphere_datacenter" "dc" {
 }
 
 data "vsphere_datastore" "datastore" {
-  name          = "datastore1" #name of the datastore
+  name          = "datastore1_host1" #name of the datastore
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
 data "vsphere_host" "host" {
-  name          = "host1" #host to deploy VM on
+  name          = "host1.lab.local" #host to deploy VM on
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
 data "vsphere_resource_pool" "pool" {
-  name          = "Cluster1" #name of the resource_pool
+  name          = "Normal" #name of the resource_pool
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
