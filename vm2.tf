@@ -1,3 +1,21 @@
+data "vsphere_compute_cluster" "compute_cluster" {
+  name          = "Cluster1"
+  datacenter_id = "${data.vsphere_datacenter.dc.id}"
+}
+
+data "vsphere_resource_pool" "pool" {
+  name          = "Low" #name of the resource_pool
+  datacenter_id = "${data.vsphere_datacenter.dc.id}"
+}
+
+data "vsphere_network" "network" {
+  name          = "VM Network" #name of the virtual_network
+  datacenter_id = "${data.vsphere_datacenter.dc.id}"
+}
+
+
+
+
 resource "vsphere_virtual_machine" "vm2" {
   name             = "terraform-vm2"
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
