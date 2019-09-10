@@ -17,7 +17,7 @@ resource "vsphere_virtual_machine" "debian-vm1" {
 
   num_cpus = 2
   memory   = 1024
-  guest_id = "Debian GNU/Linux 10 (64 bit)"
+  guest_id = "debian10_64Guest"
 
   network_interface {
     network_id = "${data.vsphere_network.network.id}"
