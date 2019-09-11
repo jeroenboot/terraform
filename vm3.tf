@@ -1,5 +1,5 @@
 data "vsphere_virtual_machine" "template" {
-  name          = "Debian10Gold"
+  name          = "ubuntu1804lts_template"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
@@ -9,15 +9,15 @@ data "vsphere_virtual_machine" "template" {
 
 
 
-resource "vsphere_virtual_machine" "debian-vm1" {
-  name             = "debian-vm1"
+resource "vsphere_virtual_machine" "ubuntu-vm1" {
+  name             = "ubuntu-vm1"
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
 #  wait_for_guest_net_timeout = "0" #disable check for valid IP address
 
   num_cpus = 2
-  memory   = 1024
-  guest_id = "debian10_64Guest"
+  memory   = 2048
+  guest_id = "ubuntu64Guest"
 
   network_interface {
     network_id = "${data.vsphere_network.network.id}"
@@ -33,7 +33,7 @@ resource "vsphere_virtual_machine" "debian-vm1" {
 
     customize {
       linux_options {
-        host_name = "debian-vm1"
+        host_name = "ubuntu-vm1"
         domain    = "lab.local"
       }
 
