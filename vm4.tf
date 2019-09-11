@@ -1,4 +1,4 @@
-data "vsphere_virtual_machine" "template_vm3" {
+data "vsphere_virtual_machine" "template_vm4" {
   name          = "ubuntu1804lts_template"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
@@ -9,8 +9,8 @@ data "vsphere_virtual_machine" "template_vm3" {
 
 
 
-resource "vsphere_virtual_machine" "vm3" {
-  name             = "ubuntu-vm1"
+resource "vsphere_virtual_machine" "vm4" {
+  name             = "ubuntu-vm2"
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
 
@@ -28,17 +28,21 @@ resource "vsphere_virtual_machine" "vm3" {
   }
 
   clone {
-    template_uuid = "${data.vsphere_virtual_machine.template_vm3.id}"
+    template_uuid = "${data.vsphere_virtual_machine.template_vm4.id}"
 
     customize {
 
       linux_options {
-        host_name = "ubuntu-vm1"
+        host_name = "ubuntu-vm2"
         domain    = "lab.local"
       }
 
       network_interface {
+        ipv4_address = "192.168.101.50"
+        ipv4_netmask = "24"
       }
+
+        ipv4_gateway = "192.168.101.2"
 
      }
   }
