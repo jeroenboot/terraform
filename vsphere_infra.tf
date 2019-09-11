@@ -33,3 +33,30 @@ data "vsphere_network" "network" {
   name          = "${var.vsphere_network}"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
+
+
+
+resource "vsphere_tag_category" "environment" {
+    name        = "environment"
+    cardinality = "SINGLE"
+    associable_types = [ "VirtualMachine"]
+}
+ 
+resource "vsphere_tag_category" "region" {
+    name        = "region"
+    cardinality = "SINGLE"
+    associable_types = ["VirtualMachine"]
+}
+ 
+
+
+
+resource "vsphere_tag" "environment" {
+    name        = "dev-test"
+    category_id = "${vsphere_tag_category.environment.id}"
+}
+ 
+resource "vsphere_tag" "region" {
+    name         = "Amsterdam"
+    category_id = "${vsphere_tag_category.region.id}"
+}
