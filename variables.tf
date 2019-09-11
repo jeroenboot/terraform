@@ -12,8 +12,8 @@ variable "vsphere_server" {}
 # vsphere datacenter the virtual machine will be deployed to. empty by default.
 variable "vsphere_datacenter" {}
 
-# vsphere resource pool the virtual machine will be deployed to. empty by default.
-variable "vsphere_compute_cluster" {}
+# vsphere compute cluster the virtual machine will be deployed to. empty by default.
+variable "vsphere_cluster" {}
 
 # vsphere resource pool the virtual machine will be deployed to. empty by default.
 variable "vsphere_resource_pool" {}
