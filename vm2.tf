@@ -17,4 +17,9 @@ resource "vsphere_virtual_machine" "vm2" {
     path             = "ISOs/TinyCore-current.iso"
   }
 
+  disk {
+    label = "disk0"
+    size  = 20
+  }
+
 }
