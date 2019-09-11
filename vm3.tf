@@ -10,7 +10,7 @@ data "vsphere_virtual_machine" "template_vm3" {
 
 
 resource "vsphere_virtual_machine" "vm3" {
-  name             = "ubuntu-vm1"
+  name             = "ubuntu-vm3"
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
 
@@ -33,7 +33,7 @@ resource "vsphere_virtual_machine" "vm3" {
     customize {
 
       linux_options {
-        host_name = "ubuntu-vm1"
+        host_name = "ubuntu-vm3"
         domain    = "lab.local"
       }
 
