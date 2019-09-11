@@ -20,6 +20,7 @@ resource "vsphere_virtual_machine" "vm4" {
 
   network_interface {
     network_id = "${data.vsphere_network.network.id}"
+    adapter_type = "${data.vsphere_virtual_machine.template_vm4.network_interface_types[0]}"
   }
 
   disk {
@@ -40,8 +41,11 @@ resource "vsphere_virtual_machine" "vm4" {
       network_interface {
         ipv4_address = "192.168.101.50"
         ipv4_netmask = "24"
+	dns_server_list = ["192.168.101.4"]
+	dns_domain = "lab.local"
       }
 
+        dns_server_list = ["192.168.101.4"]
         ipv4_gateway = "192.168.101.2"
 
      }
