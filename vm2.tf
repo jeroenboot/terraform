@@ -14,7 +14,7 @@ resource "vsphere_virtual_machine" "vm2" {
 
   cdrom {
     datastore_id     = "${data.vsphere_datastore.datastore.id}"
-    path             = "ISOs/TinyCore-current.iso"
+    path             = "ISOs/ubuntu-18.04.3-live-server-amd64.iso"
   }
 
   disk {
