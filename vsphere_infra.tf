@@ -7,26 +7,29 @@ provider "vsphere" {
   allow_unverified_ssl = true
 }
 
+
+
+
 data "vsphere_datacenter" "dc" {
-  name = "Datacenter" #name of the datacenter
+  name = "${var.vsphere_datacenter}"
 }
 
 data "vsphere_datastore" "datastore" {
-  name          = "nfs" #name of the datastore
+  name          = "${var.vsphere_datastore}"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
 data "vsphere_compute_cluster" "compute_cluster" {
-  name          = "Cluster1"
+  name          = "${var.vsphere_cluster}"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
 data "vsphere_resource_pool" "pool" {
-  name          = "Low" #name of the resource_pool
+  name          = "${var.vsphere_resource_pool}"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
 data "vsphere_network" "network" {
-  name          = "VM Network" #name of the virtual_network
+  name          = "${var.vsphere_network"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }

@@ -1,3 +1,9 @@
 vsphere_user      = "Administrator@vsphere.local"
 vsphere_password  = "Vmware123!"
 vsphere_server    = "192.168.101.3"
+
+vsphere_datacenter = "Datacenter"
+vsphere_datastore = "nfs"
+vsphere_cluster = "Cluster1"
+vsphere_resource_pool = "Low"
+vsphere_network = "VM Network"
