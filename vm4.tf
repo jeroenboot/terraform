@@ -41,8 +41,8 @@ resource "vsphere_virtual_machine" "vm4" {
       network_interface {
         ipv4_address = "192.168.101.50"
         ipv4_netmask = "24"
-	dns_server_list = ["192.168.101.4"]
-	dns_domain = "lab.local"
+        dns_server_list = ["192.168.101.4"]
+        dns_domain = "lab.local"
       }
 
         dns_server_list = ["192.168.101.4"]
